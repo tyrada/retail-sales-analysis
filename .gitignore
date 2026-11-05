@@ -3,6 +3,7 @@ __pycache__/
 *.py[cod]
 .pytest_cache/
 .coverage
+.matplotlib-cache/
 *.egg-info/
 data/*.csv
 outputs/*

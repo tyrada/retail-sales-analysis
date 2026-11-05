@@ -4,10 +4,13 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 from collections import Counter
 from itertools import combinations
 from pathlib import Path
 
+# Keep Matplotlib's cache project-local so headless or sandboxed runs remain writable.
+os.environ.setdefault("MPLCONFIGDIR", str(Path(".matplotlib-cache").resolve()))
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
