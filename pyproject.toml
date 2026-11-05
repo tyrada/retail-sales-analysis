@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "retail-sales-analysis"
+version = "0.1.0"
+description = "Deterministic retail transaction cleaning and analysis with pandas"
+requires-python = ">=3.11"
+dependencies = [
+  "pandas>=2.2,<3",
+  "pyarrow>=18,<23",
+  "matplotlib>=3.9,<4",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<9", "pytest-cov>=6,<7"]
+
+[project.scripts]
+generate-retail-data = "retail_sales.generator:main"
+analyze-retail-sales = "retail_sales.analysis:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+
